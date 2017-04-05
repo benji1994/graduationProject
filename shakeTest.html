@@ -6,7 +6,9 @@
 	<script type="text/javascript" src="source/shake.js"></script>
 </head>
 <body>
+	<h1>shakeTest</h1>
 	<script type="text/javascript">
+
 		window.onload = function(){
 			var myShakeEvent = new Shake({
 				threshold: 15
@@ -16,10 +18,11 @@
 
 			window.addEventListenner("shake",shakeEventDidOccur,false);
 
-			function shakeEventDidOcuccr() {
+			function shakeEventDidOccur() {
 				alert("射出啦！")
 			}
-		}
+		};
+		alert("right");
 	</script>
 </body>
 </html>
