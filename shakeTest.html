@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="source/shake.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var myShakeEvent = new Shake({
+				threshold: 15
+			});
+
+			myShakeEvent.start();
+
+			window.addEventListenner("shake",shakeEventDidOccur,false);
+
+			function shakeEventDidOcuccr() {
+				alert("射出啦！")
+			}
+		}
+	</script>
+</body>
+</html>
