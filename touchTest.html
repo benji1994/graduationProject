@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+<label style="text-align: center;width: 100%;display:block;">别碰我</label>
+<script type="text/javascript">
+	document.getElementsByTagName("label")[0].addEventListener("click",onClick,false);
+	document.getElementsByTagName("label")[0].addEventListener("touchstart",onClick,false);
+	function onClick() {
+		alert("叫你别碰我！");
+	}
+</script>
+</body>
+</html>
