@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="source/orienter.js"></script>
+</head>
+<body>
+	<h1>orienterTest</h1>
+	<script type="text/javascript">
+		var o = new Orienter();
+		o.onOrienter = function (obj) {
+			alert(obj.a+"-"+obj.b+"-"+obj.lon+"-"+obj.lat);
+		};
+	</script>
+</body>
+</html>
