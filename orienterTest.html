@@ -8,10 +8,13 @@
 <body>
 	<h1>orienterTest</h1>
 	<script type="text/javascript">
+	//window.addEventListener("deviceorientation",o,false);
 		var o = new Orienter();
-		o.onOrienter = function (obj) {
-			alert(obj.a+"-"+obj.b+"-"+obj.lon+"-"+obj.lat);
+		o.onOrient = function (obj) {
+			//alert(obj.a+"-"+obj.b+"-"+obj.lon+"-"+obj.lat);
+			alert(8);
 		};
+		o.init();
 	</script>
 </body>
 </html>
