@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2017 南昌航空大学科技学院毕业留念 by龙本峻</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script type="text/javascript" src="source/three.js"></script>
+	<script type="text/javascript" src="source/CSS3DRenderer.js"></script>
+    <script type="text/javascript" src="source/orienter.js"></script>
+    <script type="text/javascript" src="source/shake.js"></script>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			cursor: move;
+			overflow: hidden;
+		}
+        #myAudio {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99;
+            cursor: auto;
+            margin: 10px;
+        }
+        #myAudio audio { 
+            display: none;
+        }
+        #myAudio img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+        }
+        #myAudio .imgAnimation {
+            animation-name: musicPlay;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* Firefox: */
+            animation-name: musicPlay;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* Safari 和 Chrome: */
+            animation-name: musicPlay;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* Opera: */
+            animation-name: musicPlay;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        @keyframes musicPlay {
+            from {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);       /* IE 9 */  
+                -webkit-transform: rotate(0deg);   /* Safari and Chrome */
+                -o-transform: rotate(0deg);        /* Opera */
+                -moz-transform: rotate(0deg);      /* Firefox */
+            }
+            to {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);       /* IE 9 */
+                -webkit-transform: rotate(360deg);   /* Safari and Chrome */
+                -o-transform: rotate(360deg);        /* Opera */
+                -moz-transform: rotate(360deg);      /* Firefox */
+            } 
+        }
+        /* Firefox */
+        @-moz-keyframes musicPlay {
+            from {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);       /* IE 9 */  
+                -webkit-transform: rotate(0deg);   /* Safari and Chrome */
+                -o-transform: rotate(0deg);        /* Opera */
+                -moz-transform: rotate(0deg);      /* Firefox */
+            }
+            to {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);       /* IE 9 */
+                -webkit-transform: rotate(360deg);   /* Safari and Chrome */
+                -o-transform: rotate(360deg);        /* Opera */
+                -moz-transform: rotate(360deg);      /* Firefox */
+            } 
+        }
+        /* Safari 和 Chrome */
+        @-webkit-keyframes musicPlay {
+            from {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);       /* IE 9 */  
+                -webkit-transform: rotate(0deg);   /* Safari and Chrome */
+                -o-transform: rotate(0deg);        /* Opera */
+                -moz-transform: rotate(0deg);      /* Firefox */
+            }
+            to {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);       /* IE 9 */
+                -webkit-transform: rotate(360deg);   /* Safari and Chrome */
+                -o-transform: rotate(360deg);        /* Opera */
+                -moz-transform: rotate(360deg);      /* Firefox */
+            } 
+        } 
+        /* Opera */
+        @-o-keyframes musicPlay {
+            from {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);       /* IE 9 */  
+                -webkit-transform: rotate(0deg);   /* Safari and Chrome */
+                -o-transform: rotate(0deg);        /* Opera */
+                -moz-transform: rotate(0deg);      /* Firefox */
+            }
+            to {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);       /* IE 9 */
+                -webkit-transform: rotate(360deg);   /* Safari and Chrome */
+                -o-transform: rotate(360deg);        /* Opera */
+                -moz-transform: rotate(360deg);      /* Firefox */
+            } 
+        }
+        /* ------ classmates -------- */
+        #classmates {
+        	width: 30px;
+        	height: 30px;
+        	background-color: pink;
+        	position: absolute;
+        	top: 50px;
+        	right: 0px;
+        	z-index: 99;
+        	margin: 10px;
+        }
+        /* ----- icontample ---------- */
+        #personalCard {
+			width: 300px;
+			background-color: white;
+			border-radius: 5px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -200px;
+			margin-left: -150px;
+			z-index: 999; 
+			display: none;
+		}
+		#personalCard #closer {
+			float: right;
+			color: green;
+			font: 40px/1 微软雅黑;
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: default;
+		}
+		#personalCard #bgimg {
+			max-width: 300px;
+			display: block;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		#personalCard #personalMeta {	
+			position: relative;
+			left: 10px;
+			top: -24px;
+			font: 12px 微软雅黑;
+			z-index: 10;
+		}
+		#personalCard #personalMeta img {
+			background-color: white;
+			display: block;
+			float: left;
+			padding: 2px;
+			border: 1px solid gray;
+			margin-right: 10px;
+		}
+		#personalCard #personalMeta  div {
+			display: inline-block;
+		}
+		#personalCard #personalMeta span {
+			font: 18px 微软雅黑;
+			color: white;
+		}
+		#personalCard #signature {
+			width: 300px;
+			text-align: center;
+			font: 14px 微软雅黑;
+			padding: 0px 10px 20px 10px;
+			box-sizing: border-box;
+			word-wrap: break-word;
+		}
+	</style>
+</head>
+<body>
+<div id="myAudio">
+    <audio controls="controls" autoplay="autoplay" id="myAudioControls">
+        <source src="audio/朴树 - 那些花儿(吉他版).mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <img id="forMyAudioControls" src="picture/on.png" class="imgAnimation"></img>
+</div>
+<div id="classmates">
+</div>
+<div id="personalCard">
+		<div id="closer">X</div>
+		<img id="bgimg" src=""/>
+		<div id="personalMeta">
+		</div>
+		<div id="signature"></div>
+</div>
+<script type="text/javascript" src="js/personalCard.js"></script>
+<script type="text/javascript">
+	var camera, scene, renderer;
+	var target = new THREE.Vector3();
+	var lon = 90, lat = 0;
+    var phi = 0, theta = 0;
+    var touchX, touchY;
+    var bBefore = 0,gBefore = 0;
+
+	window.onload = function() {
+
+        init();
+        animate();
+        myAddEventListener();
+        bindGyro();
+        initShake();
+        
+        
+    }
+	function initCamera() {
+		camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
+	}
+	function inintScene() {
+		scene = new THREE.Scene();
+	}
+	function initRenderer() {
+		renderer = new THREE.CSS3DRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+	}
+    function initBackGroud() {
+        var sides = [{
+        url: 'picture/gugong/posx.jpg',
+        position: [-512, 0, 0],
+        rotation: [0, Math.PI / 2, 0]
+        }, {
+        url: 'picture/gugong/negx.jpg',
+        position: [512, 0, 0],
+        rotation: [0, -Math.PI / 2, 0]
+        }, {
+        url: 'picture/gugong/posy.jpg',
+        position: [0, 512, 0],
+        rotation: [Math.PI / 2, 0, Math.PI]
+        }, {
+        url: 'picture/gugong/negy.jpg',
+        position: [0, -512, 0],
+        rotation: [-Math.PI / 2, 0, Math.PI]
+        }, {
+        url: 'picture/gugong/posz.jpg',
+        position: [0, 0, 512],
+        rotation: [0, Math.PI, 0]
+        }, {
+        url: 'picture/gugong/negz.jpg',
+        position: [0, 0, -512],
+        rotation: [0, 0, 0]
+        }];
+
+        for(var i = 0; i < sides.length; i++) {
+            var side = sides[i];
+            var imgElement = document.createElement('img');
+            imgElement.width = 1026; // 2 pixels extra to close the gap.
+            imgElement.src = side.url;
+            var object = new THREE.CSS3DObject(imgElement);
+            object.position.fromArray(side.position);
+            object.rotation.fromArray(side.rotation);
+            scene.add(object);
+        }
+    }
+	function init() {
+		initCamera();
+		inintScene();
+        initRenderer();
+        initBackGroud();
+	}
+	function animate() {
+
+        requestAnimationFrame( animate );
+
+        lat = Math.max( - 85, Math.min( 85, lat ) );
+        phi = THREE.Math.degToRad( 90 - lat );
+        theta = THREE.Math.degToRad( lon );
+
+        target.x = Math.sin( phi ) * Math.cos( theta );
+        target.y = Math.cos( phi );
+        target.z = Math.sin( phi ) * Math.sin( theta );
+
+        camera.lookAt( target );
+
+        renderer.render( scene, camera );
+
+    }
+    function myAddEventListener() {
+        var label = document.getElementById("forMyAudioControls");
+        label.addEventListener("click",onLabelClickOrTouchstart,false);
+        label.addEventListener("touchstart",onLabelClickOrTouchstart,false);
+
+		
+        document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+        document.addEventListener( 'mousewheel', onDocumentMouseWheel, false );
+
+        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+
+        window.addEventListener( 'resize', onWindowResize, false );
+
+        var classmates = document.getElementById("classmates");
+        classmates.addEventListener("click", onClassmatesClickOrTouchstart, false);
+        classmates.addEventListener("touchstart", onClassmatesClickOrTouchstart, false);
+
+        var closer = document.getElementById("closer");
+        closer.addEventListener("click", onCloser, false);
+        closer.addEventListener("touchstart", onCloser, false); 
+	}
+    function onLabelClickOrTouchstart() {
+        var audio = document.getElementById("myAudioControls");
+        var img = document.getElementById("forMyAudioControls");
+        if(audio.paused) {
+            audio.play();
+            img.src="picture/on.png"
+            img.className="imgAnimation";
+        }
+        else {
+            audio.pause();
+            img.src="picture/off.png"
+            img.className=" ";
+        }
+    }
+	function onDocumentMouseDown( event ) {
+
+        event.preventDefault();
+
+        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+        document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+
+    }
+    function onDocumentMouseMove( event ) {
+
+        var movementX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+        var movementY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+
+        lon -= movementX * 0.1;
+        lat += movementY * 0.1;
+
+    }
+    function onDocumentMouseUp( event ) {
+
+        document.removeEventListener( 'mousemove', onDocumentMouseMove );
+        document.removeEventListener( 'mouseup', onDocumentMouseUp );
+
+    }
+    /**
+    * 鼠标滚轮改变相机焦距
+    */
+    function onDocumentMouseWheel(event) {
+        fov = event.wheelDeltaY * 0.05;
+        if (camera.fov-fov>1 && camera.fov-fov<100 ){
+            camera.fov -= fov;
+            camera.updateProjectionMatrix();
+        }
+    }
+    function onDocumentTouchStart( event ) {
+
+        event.preventDefault();
+
+        var touch = event.touches[ 0 ];
+
+        touchX = touch.screenX;
+        touchY = touch.screenY;
+
+    }
+
+    function onDocumentTouchMove( event ) {
+
+        event.preventDefault();
+
+        var touch = event.touches[ 0 ];
+
+        lon -= ( touch.screenX - touchX ) * 0.1;
+        lat += ( touch.screenY - touchY ) * 0.1;
+        touchX = touch.screenX;
+        touchY = touch.screenY;
+
+    }
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+    }
+    function onClassmatesClickOrTouchstart() {
+    	initPersonalCard();
+    }
+    function onCloser() {
+		var card = document.getElementById("personalCard");
+		card.style.display="none";
+
+	}
+    // 绑定陀螺仪
+    function bindGyro() {
+        var o = new Orienter();
+        o.onOrient = function (obj) {
+            lon -= (obj.g - gBefore) * 0.1;
+            lat += (obj.b - bBefore) * 0.1;
+            bBefore = obj.b;
+            gBefore = obj.g;
+        };
+        o.init();
+    }
+    // 摇一摇
+    function initShake() {
+    	var myShakeEvent = new Shake({
+    		threshold: 10,
+			timeout: 1000
+    	});
+
+    	myShakeEvent.start();
+
+    	window.addEventListener("shake",shakeEventDidOccur,false);
+
+		function shakeEventDidOccur() {
+			initPersonalCard();
+		}
+    }
+</script>
+</body>
+</html>
