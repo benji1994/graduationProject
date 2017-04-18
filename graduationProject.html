@@ -218,14 +218,11 @@
     var bBefore = 0,gBefore = 0;
 
 	window.onload = function() {
-
         init();
         animate();
         myAddEventListener();
         bindGyro();
         initShake();
-        
-        
     }
 	function initCamera() {
 		camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
