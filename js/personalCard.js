@@ -182,8 +182,7 @@ var people = [person1,person2,person3,person4,person5,person6,
 		person28,person29];
 	
 function initPersonalCard() {
-	//var randomPerson = people[selectFrom(0,people.length-1)];
-	var randomPerson = people[18];
+	var randomPerson = people[selectFrom(0,people.length-1)];
 	var randomColor = colors[selectFrom(0,colors.length-1)];
 	var randomNum = randomPerson.id.slice(-2);
 	if(randomNum.charAt(0) === '0') {
