@@ -132,7 +132,7 @@
         	cursor: default;
         }
         /* ----- icontample ---------- */
-        .personalCardClass {
+        #personalCard {
 			width: 300px;
 			background-color: white;
 			border-radius: 5px;
@@ -160,14 +160,13 @@
 		}
 		.personalCardClass .personalMetaClass {	
 			position: relative;
-			left: 10px;
 			top: -24px;
+			margin-left: 10px;
 			font: 12px 微软雅黑;
 			z-index: 10;
 		}
 		.personalCardClass .personalMetaClass img {
 			background-color: white;
-			display: block;
 			float: left;
 			padding: 2px;
 			border: 1px solid gray;
@@ -205,7 +204,7 @@
 		<img id="bgimg" src=""/>
 		<div id="personalMeta">
 		</div>
-		<div id="signature" class="signature"></div>
+		<div id="signature"></div>
 	</div>
 <script type="text/javascript" src="js/personalCard.js"></script>
 <script type="text/javascript" src="js/myAddEventListener.js"></script>
@@ -237,27 +236,33 @@
 	}
     function initBackGroud() {
         var sides = [{
-        url: 'picture/gugong/posx.jpg',
+        //url: 'picture/gugong/posx.jpg',
+        url: 'picture/gugong/right.jpg',
         position: [-512, 0, 0],
         rotation: [0, Math.PI / 2, 0]
         }, {
-        url: 'picture/gugong/negx.jpg',
+        //url: 'picture/gugong/negx.jpg',
+        url: 'picture/gugong/left.jpg',
         position: [512, 0, 0],
         rotation: [0, -Math.PI / 2, 0]
         }, {
-        url: 'picture/gugong/posy.jpg',
+        //url: 'picture/gugong/posy.jpg',
+        url: 'picture/gugong/top.jpg',
         position: [0, 512, 0],
         rotation: [Math.PI / 2, 0, Math.PI]
         }, {
-        url: 'picture/gugong/negy.jpg',
+        //url: 'picture/gugong/negy.jpg',
+        url: 'picture/gugong/bottom.jpg',
         position: [0, -512, 0],
         rotation: [-Math.PI / 2, 0, Math.PI]
         }, {
-        url: 'picture/gugong/posz.jpg',
+        //url: 'picture/gugong/posz.jpg',
+        url: 'picture/gugong/front.jpg',
         position: [0, 0, 512],
         rotation: [0, Math.PI, 0]
         }, {
-        url: 'picture/gugong/negz.jpg',
+        //url: 'picture/gugong/negz.jpg',
+        url: 'picture/gugong/back.jpg',
         position: [0, 0, -512],
         rotation: [0, 0, 0]
         }];

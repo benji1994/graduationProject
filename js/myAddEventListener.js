@@ -23,7 +23,7 @@ function onLabelClickOrTouchstart() {
     var img = document.getElementById("forMyAudioControls");
     if(audio.paused) {
         audio.play();
-        img.src="picture/on.png"
+        img.src="picture/on.png";
         img.className="imgAnimation";
     }
     else {
